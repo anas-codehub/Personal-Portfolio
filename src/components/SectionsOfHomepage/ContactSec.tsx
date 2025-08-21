@@ -21,15 +21,15 @@ const ContactSection = () => {
     if (form.current) {
       emailjs
         .sendForm(
-          "service_75bhuhg", // Replace with your EmailJS Service ID
-          "template_9y9u8ir", // Replace with your EmailJS Template ID
+          "service_75bhuhg",
+          "template_9y9u8ir",
           form.current,
-          "41syiGIL4NKelypvb" // Replace with your EmailJS User ID
+          "41syiGIL4NKelypvb"
         )
         .then(
           (result) => {
             alert("Message sent successfully!");
-            (e.target as HTMLFormElement).reset(); // clear form
+            (e.target as HTMLFormElement).reset();
           },
           (error) => {
             alert("Failed to send message. Try again.");

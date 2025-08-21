@@ -12,6 +12,7 @@ import {
 import { Github, Mail } from "lucide-react";
 import Link from "next/link";
 
+// Logo Component
 export const AcmeLogo = () => (
   <svg fill="none" height="36" viewBox="0 0 32 32" width="36">
     <path
@@ -26,7 +27,13 @@ export const AcmeLogo = () => (
 export default function HomeNav() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
-  const menuItems = ["HOME", "ABOUT", "BLOG", "CONTACTS"];
+  // Menu items with hrefs for pages or sections
+  const menuItems = [
+    { name: "HOME", href: "/" },
+    { name: "ABOUT", href: "/about" },
+    { name: "BLOG", href: "/blog" },
+    { name: "CONTACTS", href: "/#contact" },
+  ];
 
   return (
     <Navbar
@@ -34,10 +41,13 @@ export default function HomeNav() {
       className="bg-[#0D1117] text-green-400 border-b border-green-600/20"
     >
       <NavbarContent>
+        {/* Mobile menu toggle */}
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden text-green-400 hover:text-green-200"
         />
+
+        {/* Brand */}
         <NavbarBrand className="flex items-center gap-2">
           <AcmeLogo />
           <p className="font-mono text-xl text-green-400 hover:text-green-200 cursor-pointer">
@@ -50,12 +60,12 @@ export default function HomeNav() {
       <NavbarContent className="hidden sm:flex gap-6" justify="center">
         {menuItems.map((item, idx) => (
           <NavbarItem
-            key={item}
+            key={item.name}
             className="font-mono text-green-400 hover:text-green-200 transition-colors relative group"
           >
-            <Link href={`#${item.toLowerCase()}`}>
+            <Link href={item.href}>
               <span className="mr-1">&gt;_</span>
-              {item.toLowerCase()}
+              {item.name.toLowerCase()}
               <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 group-hover:w-full transition-all"></span>
             </Link>
           </NavbarItem>
@@ -79,13 +89,13 @@ export default function HomeNav() {
       {/* Mobile Menu */}
       <NavbarMenu className="bg-[#0D1117] text-green-400">
         {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`} className="font-mono">
+          <NavbarMenuItem key={`${item.name}-${index}`} className="font-mono">
             <Link
+              href={item.href}
               className="w-full hover:text-green-200 transition-colors"
-              href={`#${item.toLowerCase()}`}
             >
               <span className="mr-1">&gt;_</span>
-              {item.toLowerCase()}
+              {item.name.toLowerCase()}
             </Link>
           </NavbarMenuItem>
         ))}
