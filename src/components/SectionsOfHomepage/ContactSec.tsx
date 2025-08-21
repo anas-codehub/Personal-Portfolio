@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import {
   Github,
   Linkedin,
@@ -10,8 +10,34 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { Button, Form, Input, Textarea } from "@heroui/react";
+import emailjs from "@emailjs/browser";
 
 const ContactSection = () => {
+  const form = useRef<HTMLFormElement>(null);
+
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (form.current) {
+      emailjs
+        .sendForm(
+          "service_75bhuhg", // Replace with your EmailJS Service ID
+          "template_9y9u8ir", // Replace with your EmailJS Template ID
+          form.current,
+          "41syiGIL4NKelypvb" // Replace with your EmailJS User ID
+        )
+        .then(
+          (result) => {
+            alert("Message sent successfully!");
+            (e.target as HTMLFormElement).reset(); // clear form
+          },
+          (error) => {
+            alert("Failed to send message. Try again.");
+          }
+        );
+    }
+  };
+
   return (
     <div className="bg-[#0D1117]">
       <section
@@ -28,7 +54,10 @@ const ContactSection = () => {
         </p>
 
         {/* Contact Form */}
-        <Form className="max-w-2xl mx-auto space-y-5 sm:space-y-6 px-2 sm:px-0">
+        <Form
+          onSubmit={sendEmail}
+          className="max-w-2xl mx-auto space-y-5 sm:space-y-6 px-2 sm:px-0"
+        >
           <Input
             type="text"
             placeholder="Your Name"
