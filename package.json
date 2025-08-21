@@ -30,3 +30,6 @@
     "typescript": "^5"
   }
 }
+"resolutions": {
+  "lightningcss": "^1.8.0"
+}
