@@ -1,6 +1,13 @@
 "use client";
 import React from "react";
-import { Github, Linkedin, Mail, Twitter } from "lucide-react";
+import {
+  Github,
+  Linkedin,
+  Mail,
+  Twitter,
+  Facebook,
+  Instagram,
+} from "lucide-react";
 import Link from "next/link";
 import { Button, Form, Input, Textarea } from "@heroui/react";
 
@@ -11,9 +18,7 @@ const ContactSection = () => {
         id="contact"
         className="w-full max-w-7xl mx-auto px-6 py-20 text-center"
       >
-        <h2 className="text-4xl font-bold mb-6 text-green-500">
-          📬 Contact Me
-        </h2>
+        <h2 className="text-4xl  mb-6 text-green-400">&gt;_ contact</h2>
         <p className="text-lg text-white mb-12">
           Let’s build something amazing together! Fill the form or reach out via
           social links below.
@@ -26,6 +31,7 @@ const ContactSection = () => {
             placeholder="Your Name"
             required
             variant="bordered"
+            radius="sm"
             classNames={{
               inputWrapper: "border-green-500",
             }}
@@ -36,16 +42,19 @@ const ContactSection = () => {
             placeholder="Your Email"
             required
             variant="bordered"
+            radius="sm"
             classNames={{
               inputWrapper: "border-green-500",
             }}
             className="text-white"
           />
           <Textarea
+            required
             className="max-w-2xl text-white"
             label="Description"
             placeholder="Enter your description"
             variant="bordered"
+            radius="sm"
             classNames={{
               inputWrapper: "border-green-500",
             }}
@@ -64,14 +73,14 @@ const ContactSection = () => {
         {/* Social Links with Link */}
         <div className="flex justify-center gap-6 mt-12">
           <Link
-            href="https://github.com/your-username"
+            href="https://github.com/anas-codehub"
             target="_blank"
             className="p-3 rounded-full border text-success hover:bg-green-600 hover:text-white transition-all"
           >
             <Github />
           </Link>
           <Link
-            href="https://linkedin.com/in/your-username"
+            href="https://www.linkedin.com/in/talat-mahmud-anas-a54705354/"
             target="_blank"
             className="p-3 rounded-full border text-success hover:bg-green-600 hover:text-white transition-all"
           >
@@ -89,6 +98,20 @@ const ContactSection = () => {
             className="p-3 rounded-full border text-success hover:bg-green-600 hover:text-white transition-all"
           >
             <Twitter />
+          </Link>
+          <Link
+            href="https://www.facebook.com/talat.mahmud.9615"
+            target="_blank"
+            className="p-3 rounded-full border text-success hover:bg-green-600 hover:text-white transition-all"
+          >
+            <Facebook />
+          </Link>
+          <Link
+            href="https://instagram.com/weirdo_anas"
+            target="_blank"
+            className="p-3 rounded-full border text-success hover:bg-green-600 hover:text-white transition-all"
+          >
+            <Instagram />
           </Link>
         </div>
       </section>
