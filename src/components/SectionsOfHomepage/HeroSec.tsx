@@ -6,7 +6,7 @@ import React from "react";
 
 const HeroSec = () => {
   return (
-    <section className="relative w-full  bg-[#0D1117] flex items-center justify-center px-8  pt-24 md:pt-28">
+    <section className="relative w-full bg-[#0D1117] flex items-center justify-center px-8 pt-24 md:pt-28">
       <div className="max-w-7xl flex flex-col md:flex-row items-center gap-12">
         {/* Profile Picture */}
         <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full border-4 border-green-400 overflow-hidden shadow-lg hover:scale-105 transition-transform duration-500">
@@ -16,20 +16,27 @@ const HeroSec = () => {
             fill
             className="object-cover rounded-full"
           />
-          {/* Neon Pulse Ring */}
           <div className="absolute inset-0 rounded-full border-2 border-green-500 animate-pulse"></div>
         </div>
 
         {/* Intro Text */}
         <div className="flex flex-col items-start text-left">
-          <h1 className="text-5xl md:text-6xl font-mono text-green-400">
-            &_ Anas
+          {/* Terminal / Hacker Style */}
+          <h1 className="text-4xl md:text-5xl font-mono text-green-400">
+            console.log("Hello World")
+            <span className="blinking-cursor">|</span>
           </h1>
+
+          {/* Name */}
+          <h2 className="mt-4 text-5xl md:text-6xl font-mono text-green-400">
+            &_ Anas
+          </h2>
+
           <p className="mt-2 text-xl md:text-2xl text-gray-300">
             Web Developer | Future Software Engineer
           </p>
 
-          {/* CTA Buttons using Link with >_ prefix */}
+          {/* CTA Buttons */}
           <div className="mt-6 flex gap-4">
             <Link
               href="#contact"
@@ -47,7 +54,7 @@ const HeroSec = () => {
         </div>
       </div>
 
-      {/* Optional Background Circuit/Glitch */}
+      {/* Background Circuit/Glitch */}
       <div className="absolute top-0 left-0 w-full h-full bg-[url('/circuit-bg.svg')] bg-no-repeat bg-center bg-cover opacity-10 pointer-events-none"></div>
     </section>
   );

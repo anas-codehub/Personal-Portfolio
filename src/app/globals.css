@@ -13,6 +13,7 @@
 
 html {
   transition: background-color 0.3s ease, color 0.3s ease;
+  scroll-behavior: smooth;
 }
 
 .dark {
@@ -59,5 +60,16 @@ html {
     scrollbar-width: thin; /* Firefox */
     scrollbar-color: var(--heroui-foreground) var(--heroui-background); /* Firefox */
   }
+}
+
+.blinking-cursor {
+  display: inline-block;
+  width: 1ch;
+  background-color: currentColor;
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  50% { background-color: transparent; }
 }
 

@@ -8,6 +8,7 @@ import ProjectsSection from "@/components/SectionsOfHomepage/ProjectsSec";
 import SkillSec from "@/components/SectionsOfHomepage/SkillSec";
 import Achievements from "@/components/SectionsOfHomepage/AchievementSec";
 import ContactSection from "@/components/SectionsOfHomepage/ContactSec";
+import Footer from "@/components/SectionsOfHomepage/Footer";
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
       <SkillSec />
       <Achievements />
       <ContactSection />
+      <Footer />
     </>
   );
 };
