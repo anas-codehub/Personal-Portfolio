@@ -5,6 +5,7 @@ import React from "react";
 import HeroSec from "@/components/SectionsOfHomepage/HeroSec";
 import AboutSec from "@/components/SectionsOfHomepage/AboutSec";
 import ProjectsSection from "@/components/SectionsOfHomepage/ProjectsSec";
+import SkillSec from "@/components/SectionsOfHomepage/SkillSec";
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <HeroSec />
       <AboutSec />
       <ProjectsSection />
+      <SkillSec />
     </>
   );
 };
