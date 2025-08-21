@@ -16,16 +16,19 @@ const ContactSection = () => {
     <div className="bg-[#0D1117]">
       <section
         id="contact"
-        className="w-full max-w-7xl mx-auto px-6 py-20 text-center"
+        className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 text-center"
       >
-        <h2 className="text-4xl  mb-6 text-green-400">&gt;_ contact</h2>
-        <p className="text-lg text-white mb-12">
+        {/* Heading */}
+        <h2 className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6 text-green-400">
+          &gt;_ contact
+        </h2>
+        <p className="text-base sm:text-lg text-white mb-10 sm:mb-12 max-w-2xl mx-auto">
           Let’s build something amazing together! Fill the form or reach out via
           social links below.
         </p>
 
         {/* Contact Form */}
-        <Form className="max-w-2xl mx-auto space-y-6">
+        <Form className="max-w-2xl mx-auto space-y-5 sm:space-y-6 px-2 sm:px-0">
           <Input
             type="text"
             placeholder="Your Name"
@@ -59,60 +62,41 @@ const ContactSection = () => {
               inputWrapper: "border-green-500",
             }}
           />
-          ;
           <Button
             type="submit"
             radius="none"
-            className="w-full "
+            className="w-full font-medium"
             color="success"
           >
             Send Message 🚀
           </Button>
         </Form>
 
-        {/* Social Links with Link */}
-        <div className="flex justify-center gap-6 mt-12">
-          <Link
-            href="https://github.com/anas-codehub"
-            target="_blank"
-            className="p-3 rounded-full border text-success hover:bg-green-600 hover:text-white transition-all"
-          >
-            <Github />
-          </Link>
-          <Link
-            href="https://www.linkedin.com/in/talat-mahmud-anas-a54705354/"
-            target="_blank"
-            className="p-3 rounded-full border text-success hover:bg-green-600 hover:text-white transition-all"
-          >
-            <Linkedin />
-          </Link>
-          <Link
-            href="mailto:youremail@example.com"
-            className="p-3 rounded-full border text-success hover:bg-green-600 hover:text-white transition-all"
-          >
-            <Mail />
-          </Link>
-          <Link
-            href="https://twitter.com/your-username"
-            target="_blank"
-            className="p-3 rounded-full border text-success hover:bg-green-600 hover:text-white transition-all"
-          >
-            <Twitter />
-          </Link>
-          <Link
-            href="https://www.facebook.com/talat.mahmud.9615"
-            target="_blank"
-            className="p-3 rounded-full border text-success hover:bg-green-600 hover:text-white transition-all"
-          >
-            <Facebook />
-          </Link>
-          <Link
-            href="https://instagram.com/weirdo_anas"
-            target="_blank"
-            className="p-3 rounded-full border text-success hover:bg-green-600 hover:text-white transition-all"
-          >
-            <Instagram />
-          </Link>
+        {/* Social Links */}
+        <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mt-10 sm:mt-12">
+          {[
+            { href: "https://github.com/anas-codehub", icon: <Github /> },
+            {
+              href: "https://www.linkedin.com/in/talat-mahmud-anas-a54705354/",
+              icon: <Linkedin />,
+            },
+            { href: "mailto:youremail@example.com", icon: <Mail /> },
+            { href: "https://twitter.com/your-username", icon: <Twitter /> },
+            {
+              href: "https://www.facebook.com/talat.mahmud.9615",
+              icon: <Facebook />,
+            },
+            { href: "https://instagram.com/weirdo_anas", icon: <Instagram /> },
+          ].map((link, idx) => (
+            <Link
+              key={idx}
+              href={link.href}
+              target="_blank"
+              className="p-3 sm:p-4 rounded-full border text-success hover:bg-green-600 hover:text-white transition-all"
+            >
+              {link.icon}
+            </Link>
+          ))}
         </div>
       </section>
     </div>
